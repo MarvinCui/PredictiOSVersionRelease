@@ -24,4 +24,4 @@
 预测的版本 17.3 的发布日期为：2024-01-21
 ```
 
-![](IMAGE.jpg)
+![](Resources/Plot/main.jpg)

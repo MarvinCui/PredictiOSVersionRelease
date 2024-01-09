@@ -1,5 +1,14 @@
 import pandas as pd
+import numpy as np
 from sklearn.linear_model import LinearRegression
+from datetime import timedelta
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
+
+# 设置支持中文的字体，这里使用 macOS 中的 "Heiti TC"，根据您的操作系统和可用字体调整
+plt.rcParams['font.sans-serif'] = ['Heiti TC']
+plt.rcParams['axes.unicode_minus'] = False  # 正确显示负号
+
 
 # 加载数据
 data = pd.read_excel('Resources/iOS release date.xlsx')
@@ -39,6 +48,44 @@ for major in major_versions:
     segment_data[major] = segment
 
 
+# 初始化线性回归模型的字典来存储每个大版本段的模型
+segment_models = {}
+segment_data = {}
+
+# 对每个大版本的小版本序列进行线性回归
+for i in range(len(major_versions)):
+    # 获取当前大版本的数据段
+    major = major_versions.iloc[i]
+    if i + 1 < len(major_versions):
+        next_major = major_versions.iloc[i + 1]
+    else:
+        next_major = data['version number'].max() + 1
+
+    segment = data[(data['version number'] >= major) & (data['version number'] < next_major)]
+    X = segment[['version number']]
+    y = segment['days_since_first_release']
+    model = LinearRegression().fit(X, y)
+    segment_models[major] = model
+    segment_data[major] = segment
+
+# 绘制原始数据和每个段的拟合线
+
+plt.figure(figsize=(10, 6))
+plt.scatter(data['version number'], data['Date'], label='实际发布日期', color='black')
+
+for major, model in segment_models.items():
+    seg = segment_data[major]
+    X_test = pd.DataFrame(np.linspace(seg['version number'].min(), seg['version number'].max(), 100), columns=['version number'])
+    y_pred = model.predict(X_test)
+    plt.plot(X_test, [data['Date'].min() + timedelta(days=int(day)) for day in y_pred], label=f'版本 {major} 拟合线')
+
+plt.xlabel('版本号')
+plt.ylabel('发布日期')
+plt.title('iOS 版本发布日期与分段线性回归拟合')
+plt.legend()
+plt.show()
+
+
 def predict_release_date(version_number):
     # 将版本号转换为浮点数
     version_number = float(version_number)
@@ -54,8 +101,8 @@ def predict_release_date(version_number):
             return predicted_date
 
 # 从用户那里获取要预测的版本号
-version_to_predict = input("Please enter the version number you want to predict: ")
+version_to_predict = input("请输入您想要预测的版本号：")
 
 # 预测并打印发布日期
 predicted_date = predict_release_date(version_to_predict)
-print(f"The predict version {version_to_predict} may released in {predicted_date.strftime('%Y-%m-%d')}")
+print(f"预测的版本 {version_to_predict} 的发布日期为：{predicted_date.strftime('%Y-%m-%d')}")
