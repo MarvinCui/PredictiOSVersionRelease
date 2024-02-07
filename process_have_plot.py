@@ -101,8 +101,8 @@ def predict_release_date(version_number):
             return predicted_date
 
 # 从用户那里获取要预测的版本号
-version_to_predict = input("请输入您想要预测的版本号：")
+version_to_predict = input("Please enter the version number you want to predict: ")
 
 # 预测并打印发布日期
 predicted_date = predict_release_date(version_to_predict)
-print(f"预测的版本 {version_to_predict} 的发布日期为：{predicted_date.strftime('%Y-%m-%d')}")
+print(f"The predicted release date for version {version_to_predict} is {predicted_date.strftime('%Y-%m-%d')}")

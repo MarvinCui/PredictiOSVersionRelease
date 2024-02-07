@@ -1,8 +1,22 @@
 # iOS release time Prediction
 
-> CAUTION: The README.md ONLY have the Chinese version.
+# EN
 
-过去的 iOS 发布时间和版本被存放在了 ```iOS release date.xlsx``` 中。未来将会更新。
+Past iOS release dates and versions are stored in 'iOS release date.xlsx'. The future will be updated. 
+
+The following techniques are used to improve prediction accuracy: 
+
+1. Segment fitting 
+
+2. Increase the weight of the last three major versions by 10% and reduce the weight of the other versions by 5% 
+
+The results obtained are relatively accurate.
+
+---
+
+# CN
+
+过去的 iOS 发布时间和版本被存放在了 `iOS release date.xlsx` 中。未来将会更新。
 
 主要用了以下技术来提高预测精准度：
 
@@ -14,23 +28,24 @@
 
 ---
 
-# 结果
+# Results
 
-## 2024 年 1 月 23 日更新：
-```
-请输入您想要预测的版本号：17.4
-
-预测的版本 17.3 的发布日期为：2024-03-05
-```
-
----
-
-## 2024 年 1 月 9 日更新：
+## UPDATE in 2024/1/23：
 
 ```
-请输入您想要预测的版本号：17.3
+Please enter the version number you want to predict: 17.4 
 
-预测的版本 17.3 的发布日期为：2024-01-21
+The predicted release date for version 17.4 is 2024-03-05 
+```
+
+## UPDATE in 2024/1/9：
+
+```
+Please enter the version number you want to predict: 17.3 
+
+The predicted release date for version 17.3 is 2024-01-21 
 ```
 
 ![](Resources/Plot/main.png)
+
+---
