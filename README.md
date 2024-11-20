@@ -46,6 +46,14 @@ Please enter the version number you want to predict: 17.3
 The predicted release date for version 17.3 is 2024-01-21 
 ```
 
+## UPDATE in 2024/11/20：
+
+```
+Please enter the version number you want to predict: 18.2
+
+The predicted release date for version 18.2 is 2024-12-09
+```
+
 ![](Resources/Plot/main.png)
 
 ---
