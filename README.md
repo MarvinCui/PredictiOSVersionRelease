@@ -2,6 +2,8 @@
 
 # EN
 
+**This project will not be maintained and updated later. An updated version please see [PredictiOSVersion - HTML] (https://github.com/MarvinCui/PredictiOSVersion).**
+
 Past iOS release dates and versions are stored in 'iOS release date.xlsx'. The future will be updated. 
 
 The following techniques are used to improve prediction accuracy: 
@@ -16,6 +18,8 @@ The results obtained are relatively accurate.
 
 # CN
 
+**本项目后期不再维护和更新。更新版本请看 [PredictiOSVersion-HTML](https://github.com/MarvinCui/PredictiOSVersion)。**
+
 过去的 iOS 发布时间和版本被存放在了 `iOS release date.xlsx` 中。未来将会更新。
 
 主要用了以下技术来提高预测精准度：
@@ -25,35 +29,3 @@ The results obtained are relatively accurate.
 2. 把最近三个大版本的权重增加 10%，其他版本的权重减少 5%
 
 得到的结果较为精确。
-
----
-
-# Results
-
-## UPDATE in 2024/1/23：
-
-```
-Please enter the version number you want to predict: 17.4 
-
-The predicted release date for version 17.4 is 2024-03-05 
-```
-
-## UPDATE in 2024/1/9：
-
-```
-Please enter the version number you want to predict: 17.3 
-
-The predicted release date for version 17.3 is 2024-01-21 
-```
-
-## UPDATE in 2024/11/20：
-
-```
-Please enter the version number you want to predict: 18.2
-
-The predicted release date for version 18.2 is 2024-12-09
-```
-
-![](Resources/Plot/main.png)
-
----
